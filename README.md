@@ -29,18 +29,10 @@
 
 <img src="assets/title-commits.svg" width="100%" alt="04 Commit log — A year of building."/>
 
-<p align="center">
-  <img src="https://ghchart.rshah.org/1f6feb/abdullahafrididev" alt="Abdullah Afridi's contribution graph"/>
-</p>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/abdullahafrididev/abdullahafrididev/output/github-contribution-grid-snake-dark.svg"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/abdullahafrididev/abdullahafrididev/output/github-contribution-grid-snake.svg"/>
-  <img alt="Snake eating my contribution graph" src="https://raw.githubusercontent.com/abdullahafrididev/abdullahafrididev/output/github-contribution-grid-snake-dark.svg"/>
-</picture>
+<img src="assets/contribution-panel.svg" width="100%" alt="Commit log — a year of building, one square at a time."/>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=abdullahafrididev&show_icons=true&hide_rank=true&hide_border=true&border_radius=16&bg_color=0A101F&title_color=8FBEFF&text_color=B9C7D9&icon_color=4C9AFF&custom_title=GitHub%20at%20a%20glance" width="400" alt="GitHub stats"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=abdullahafrididev&show_icons=true&hide_rank=true&hide_border=true&border_radius=16&bg_color=0A101F&title_color=8FBEFF&text_color=B9C7D9&icon_color=4C9AFF&custom_title=GitHub%20at%20a%20glance" width="330" alt="GitHub stats"/>
 </p>
 
 <img src="assets/title-connect.svg" width="100%" alt="05 Connect — Let's build something."/>
