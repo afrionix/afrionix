@@ -1,4 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 110" width="880" height="110">
-  <text x="440" y="52" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#F2F7FF">Abdullah <tspan font-style="italic" fill="#E9C979">Afridi</tspan></text>
-  <text x="440" y="86" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="17" fill="#8FA6C4">Building clean, responsive websites.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img">
+  <title>Abdullah Afridi — signature</title>
+  <defs>
+    <linearGradient id="fs-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#060A14"/><stop offset="1" stop-color="#0C1830"/>
+    </linearGradient>
+    <radialGradient id="fs-glow" cx="50%" cy="115%" r="75%">
+      <stop offset="0" stop-color="#1F6FEB" stop-opacity=".5"/><stop offset="1" stop-color="#1F6FEB" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fs-trace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7FB3FF" stop-opacity="0"/><stop offset=".5" stop-color="#7FB3FF"/><stop offset=".75" stop-color="#E9C979"/><stop offset="1" stop-color="#7FB3FF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .fs-serif { font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Times New Roman', serif; }
+    .fs-mono  { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; }
+    .fs-trace { stroke-dasharray: 450 2550; stroke-dashoffset: 3000; animation: fs-trace 8s linear infinite; }
+    @keyframes fs-trace { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .fs-trace { display: none; } }
+  </style>
+  <rect width="1200" height="300" rx="20" fill="url(#fs-bg)"/>
+  <rect width="1200" height="300" rx="20" fill="url(#fs-glow)"/>
+  <rect x=".5" y=".5" width="1199" height="299" rx="19.5" fill="none" stroke="#7FB3FF" stroke-opacity=".16"/>
+  <rect class="fs-trace" x=".5" y=".5" width="1199" height="299" rx="19.5" fill="none" stroke="url(#fs-trace)" stroke-width="1.5" stroke-linecap="round"/>
+  <g fill="#BCD7FF">
+    <circle cx="150" cy="70" r="1.4" opacity=".5"/><circle cx="330" cy="200" r="1.1" opacity=".35"/>
+    <circle cx="520" cy="52" r="1.2" opacity=".4"/><circle cx="700" cy="225" r="1.3" opacity=".45"/>
+    <circle cx="880" cy="66" r="1.1" opacity=".35"/><circle cx="1040" cy="180" r="1.4" opacity=".5"/>
+    <circle cx="230" cy="120" r="1" opacity=".3"/><circle cx="960" cy="110" r="1" opacity=".3"/>
+    <circle cx="620" cy="240" r="1" opacity=".3"/><circle cx="420" cy="90" r="1" opacity=".28"/>
+  </g>
+  <text class="fs-serif" x="600" y="128" text-anchor="middle" font-size="66" font-style="italic" font-weight="300" fill="#BCD7FF">Abdullah</text>
+  <line x1="330" y1="162" x2="870" y2="162" stroke="#7FB3FF" stroke-opacity=".45" stroke-width="1"/>
+  <circle cx="600" cy="162" r="4" fill="#7FB3FF"/>
+  <text class="fs-serif" x="600" y="208" text-anchor="middle" font-size="23" font-style="italic" fill="#DCEAFF">Building clean, responsive websites.</text>
+  <text class="fs-mono" x="600" y="252" text-anchor="middle" font-size="11" letter-spacing="5" fill="#8FA6C4">SOFTWARE ENGINEERING &#183; FRONT-END DEVELOPMENT</text>
 </svg>
