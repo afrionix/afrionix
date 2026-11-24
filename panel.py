@@ -106,9 +106,9 @@ def main():
     GX, GY, PITCH, SQ = 96, 262, 19, 14
     # serpentine route: down one week column, up the next — the snake's path
     route_dates = []
-    for c in range(ncols):
-        rows = range(7) if c % 2 == 0 else range(6, -1, -1)
-        for r in rows:
+    for r in range(7):
+        cols = range(ncols) if r % 2 == 0 else range(ncols - 1, -1, -1)
+        for c in cols:
             dd = start + timedelta(days=c * 7 + r)
             if dd in days:
                 route_dates.append(dd)
@@ -147,7 +147,7 @@ def main():
     snake = f'<path id="cp-route" d="{route_d}" fill="none" stroke="none"/>'
     for i in range(5, 0, -1):
         snake += (f'<circle r="{7.5 - i * 0.7:.1f}" fill="{body_cols[i-1]}">'
-                  f'<animateMotion dur="{DUR}s" begin="{-i * step_dur:.3f}s" repeatCount="indefinite"><mpath href="#cp-route"/></animateMotion></circle>')
+                  f'<animateMotion dur="{DUR}s" begin="{-(DUR - i * step_dur):.3f}s" repeatCount="indefinite"><mpath href="#cp-route"/></animateMotion></circle>')
     snake += (f'<g><animateMotion dur="{DUR}s" repeatCount="indefinite"><mpath href="#cp-route"/></animateMotion>'
               f'<circle r="8" fill="#F2F7FF"/><circle cx="-3" cy="-1.5" r="1.7" fill="#0A101F"/><circle cx="3" cy="-1.5" r="1.7" fill="#0A101F"/></g>')
     rng = f"{MONTHS[dates[0].month-1]} {dates[0].year} \u2013 {MONTHS[dates[-1].month-1]} {dates[-1].year}"
