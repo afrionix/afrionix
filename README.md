@@ -1,145 +1,80 @@
-<div align="center">
+<p align="center">
+  <img src="header-portrait.png" height="340" alt="Abdullah Afridi — portrait"/>
+</p>
 
-<img src="https://capsule-render.vercel.app/api?type=venom&height=220&text=Abdullah%20Afridi&fontSize=55&color=0:0d0d0d,50:1a1a2e,100:16213e&fontColor=00ffff&animation=fadeIn&stroke=00ffff&strokeWidth=2" width="100%"/>
+<h1 align="center"><code>Abdullah Afridi</code></h1>
 
-# Hey, I'm Abdullah 👋
-### `Just a Software Engineering student exploring code and technology.`
-
-<img src="https://media.giphy.com/media/VTtANKl0beDFQRLDTh/giphy.gif" width="480"/>
-
-</div>
-
----
-
-# 🎮 Player Stats
-
-```cpp
-Name        = Abdullah Afridi
-Username    = abdullahafrididev
-Role        = Software Engineering Student
-Level       = Beginner Developer
-Main Skills = C++ / HTML / CSS / JavaScript
-Focus       = Learning & Building Projects
-Status      = Grinding Every Day...
-```
-
----
-
-# ⚔️ Tech Arsenal
+<p align="center"><b>AFRIONIX</b> · Software Engineering Student · Front-End Developer</p>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=cpp,html,css,js,git,github,vscode" />
+  <a href="https://www.linkedin.com/in/abdullahafridi01"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <a href="mailto:afridiabdullah.dev@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
+</p>
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=abdullahafrididev&label=Profile%20views&color=0e75b6&style=flat-square" alt="Profile views"/>
+  <img src="https://img.shields.io/github/followers/abdullahafrididev?label=Followers&style=flat-square&color=0e75b6" alt="Followers"/>
 </p>
 
 ---
 
-# 🕹️ Current Missions
-
-<img align="right" src="https://media.giphy.com/media/L8K62iTDkzGX6/giphy.gif" width="300"/>
-
-- 🔹 Mastering C++
-- 🔹 Learning Web Development
-- 🔹 Building Creative Projects
-- 🔹 Exploring Git & GitHub
-- 🔹 Improving Problem Solving Skills
-
-<br clear="right"/>
-
----
-
-# 🌌 Developer Console
+## ~/ whoami
 
 ```bash
-> initializing developer mode...
-✔ Loading creativity...
-✔ Loading coding skills...
-✔ Loading late night debugging...
-System Ready 🚀
+$ cat about.txt
+> Abdullah Afridi — Software Engineering student at Air University, Islamabad.
+> I build clean, responsive websites with HTML, CSS & JavaScript,
+> and I'm growing into full-stack development through a real project:
+> RAKAN ERP, an inventory & invoicing system for my father's business.
+> Currently learning: Node.js.
+> Status: open to internships & freelance projects.
 ```
 
 ---
 
-# 🎌 Anime Arc
+## 02 · Tech Stack
 
-<div align="center">
+**Comfortable with**
 
-<img src="https://media.giphy.com/media/bGgsc5mWoryfgKBx1u/giphy.gif" width="260"/>
-&nbsp;&nbsp;
-<img src="https://media.giphy.com/media/f9k1tV7HyORcngKF8v/giphy.gif" width="260"/>
+<p>
+  <img src="https://skillicons.dev/icons?i=cpp,html,css,js,git,github,vscode&theme=dark" alt="C++, HTML, CSS, JavaScript, Git, GitHub, VS Code"/>
+</p>
 
-<br/>
-<sub>⚔️ Every bug is a boss fight. Every fix is a level up.</sub>
+**Currently learning** — through the RAKAN ERP build
 
-</div>
-
----
-
-# 🎧 While Coding
-
-<p align="center">
-  <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="420"/>
+<p>
+  <img src="https://skillicons.dev/icons?i=nodejs,ts,nextjs,postgres,prisma,tailwind&theme=dark" alt="Node.js, TypeScript, Next.js, PostgreSQL, Prisma, Tailwind CSS"/>
 </p>
 
 ---
 
-# 💻 Terminal
+## 03 · Projects
 
-```bash
-abdullah@github:~$ learning c++
-███████████▒▒▒▒▒ 70%
-abdullah@github:~$ learning web development
-████████▒▒▒▒▒▒▒▒ 45%
-abdullah@github:~$ motivation
-MAXIMUM 🔥
-```
+- **🧮 [Calculator](https://github.com/abdullahafrididev/calculator-project)** — a clean, responsive calculator built with HTML, CSS & JavaScript.
+- **🏢 RAKAN ERP** *(private, in progress)* — inventory, invoicing & accounts system for a real dental-supplies business in Saudi Arabia. Next.js · TypeScript · PostgreSQL. Design phase complete, build in progress.
+- **🎮 Tetris** — classic Tetris in C++. Being cleaned up — repo coming soon.
 
 ---
 
-# 📊 Battle Stats
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=abdullahafrididev&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=00ffff&icon_color=00ffff" height="165"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=abdullahafrididev&layout=compact&theme=tokyonight&hide_border=true&title_color=00ffff" height="165"/>
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=abdullahafrididev&theme=tokyonight&hide_border=true&ring=00ffff&fire=ff6e6e&currStreakLabel=00ffff" />
-
-</div>
-
----
-
-# 🏆 Trophies
-
-<div align="center">
-
-![Trophies](https://github-profile-trophy.vercel.app/?username=abdullahafrididev&theme=tokyonight&no-frame=true&column=7&margin-w=8)
-
-</div>
-
----
-
-# 🚀 Connect With Me
+## 04 · GitHub Stats
 
 <p align="center">
-<a href="https://github.com/abdullahafrididev">
-  <img src="https://img.shields.io/badge/GitHub-abdullahafrididev-black?style=for-the-badge&logo=github">
-</a>
-<a href="https://www.linkedin.com/in/abdullahafridi01">
-  <img src="https://img.shields.io/badge/LinkedIn-Abdullah_Afridi-blue?style=for-the-badge&logo=linkedin">
-</a>
-<a href="mailto:afridiabdullah.dev@gmail.com">
-  <img src="https://img.shields.io/badge/Gmail-afridiabdullah.dev%40gmail.com-red?style=for-the-badge&logo=gmail">
-</a>
+  <img height="170" src="https://github-readme-stats.vercel.app/api?username=abdullahafrididev&show_icons=true&theme=tokyonight" alt="GitHub stats"/>
+  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=abdullahafrididev&layout=compact&theme=tokyonight" alt="Top languages"/>
+</p>
+
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=abdullahafrididev&theme=tokyonight" alt="GitHub streak"/>
 </p>
 
 ---
 
-<div align="center">
+## 05 · Contribution Snake
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00F7FF&center=true&vCenter=true&width=500&lines=Software+Engineering+Student;C%2B%2B+Learner;Future+Developer;Building+Cool+Stuff+Everyday..." />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/abdullahafrididev/abdullahafrididev/output/github-contribution-grid-snake-dark.svg"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/abdullahafrididev/abdullahafrididev/output/github-contribution-grid-snake.svg"/>
+  <img alt="Snake eating my contribution graph" src="https://raw.githubusercontent.com/abdullahafrididev/abdullahafrididev/output/github-contribution-grid-snake-dark.svg"/>
+</picture>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,50:16213e,100:0f3460&height=120&section=footer&text=Keep+Grinding+%E2%9A%94%EF%B8%8F&fontSize=22&fontColor=00ffff&animation=twinkling" width="100%"/>
-
-![Profile Views](https://komarev.com/ghpvc/?username=abdullahafrididev&color=00ffff&style=flat-square&label=Visitors)
-
-</div>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:0e2a5c,100:1f6feb&height=100&section=footer" width="100%" alt=""/>
