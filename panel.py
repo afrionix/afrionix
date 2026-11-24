@@ -112,7 +112,7 @@ def main():
             dd = start + timedelta(days=c * 7 + r)
             if dd in days:
                 route_dates.append(dd)
-    route_dates = route_dates[: route_dates.index(dates[-1]) + 1]
+   route_dates = [d for d in route_dates if d <= dates[-1]]
     step_of = {d: i for i, d in enumerate(route_dates)}
     NSTEPS = len(route_dates)
     DUR = 26.0
