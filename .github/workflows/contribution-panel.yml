@@ -15,7 +15,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Regenerate the panel from the public contribution calendar
+      - name: Regenerate the panel from the full contribution calendar
+        env:
+          GH_PANEL_TOKEN: ${{ secrets.GH_PANEL_TOKEN }}
         run: python panel.py
       - name: Publish if changed
         run: |
