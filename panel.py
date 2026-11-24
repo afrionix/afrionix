@@ -2,8 +2,8 @@
 """Generate contribution-panel.svg from the public GitHub contribution
 calendar (the same source Sushmita's commit-log panel uses). Stdlib only.
 Usage: panel.py [saved-contributions.html]  (fetches live when no file given)"""
-import re, sys, urllib.request
-from datetime import date, timedelta
+import json, os, re, sys, urllib.request
+from datetime import date, datetime, timedelta, timezone
 
 USER = "abdullahafrididev"
 SERIF = "Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Times New Roman', serif"
@@ -19,6 +19,48 @@ def fetch():
     req = urllib.request.Request(f"https://github.com/users/{USER}/contributions",
                                  headers={"User-Agent": "Mozilla/5.0"})
     return urllib.request.urlopen(req, timeout=30).read().decode("utf-8")
+
+LEVEL_ENUM = {"NONE": 0, "FIRST_QUARTILE": 1, "SECOND_QUARTILE": 2,
+              "THIRD_QUARTILE": 3, "FOURTH_QUARTILE": 4}
+
+def fetch_days_api(token):
+    """Full contribution calendar (private repos included, counts only)
+    via the GraphQL API with the owner's own token."""
+    to = datetime.now(timezone.utc)
+    frm = to - timedelta(days=364)
+    query = """query($login: String!, $from: DateTime!, $to: DateTime!) {
+      user(login: $login) {
+        contributionsCollection(from: $from, to: $to) {
+          contributionCalendar {
+            weeks { contributionDays { date contributionCount contributionLevel } }
+          }
+        }
+      }
+    }"""
+    payload = json.dumps({"query": query, "variables": {
+        "login": USER, "from": frm.isoformat(), "to": to.isoformat()}}).encode()
+    req = urllib.request.Request("https://api.github.com/graphql", data=payload,
+                                 headers={"Authorization": f"bearer {token}",
+                                          "Content-Type": "application/json",
+                                          "User-Agent": "contribution-panel"})
+    data = json.loads(urllib.request.urlopen(req, timeout=30).read())
+    days = {}
+    weeks = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
+    for w in weeks:
+        for cd in w["contributionDays"]:
+            y, mo, d = map(int, cd["date"].split("-"))
+            days[date(y, mo, d)] = (cd["contributionCount"], LEVEL_ENUM[cd["contributionLevel"]])
+    return days
+
+FULL = False
+
+def get_days():
+    global FULL
+    token = os.environ.get("GH_PANEL_TOKEN", "").strip()
+    if token:
+        FULL = True
+        return fetch_days_api(token)
+    return parse(fetch())
 
 def parse(html):
     days, id2date = {}, {}
@@ -38,7 +80,7 @@ def parse(html):
     return days
 
 def main():
-    days = parse(fetch())
+    days = get_days()
     if not days:
         sys.exit("no calendar data parsed")
     dates = sorted(days)
@@ -62,24 +104,52 @@ def main():
     ncols = (dates[-1] - start).days // 7 + 1
 
     GX, GY, PITCH, SQ = 96, 262, 19, 14
+    # serpentine route: down one week column, up the next — the snake's path
+    route_dates = []
+    for c in range(ncols):
+        rows = range(7) if c % 2 == 0 else range(6, -1, -1)
+        for r in rows:
+            dd = start + timedelta(days=c * 7 + r)
+            if dd in days:
+                route_dates.append(dd)
+    route_dates = route_dates[: route_dates.index(dates[-1]) + 1]
+    step_of = {d: i for i, d in enumerate(route_dates)}
+    NSTEPS = len(route_dates)
+    DUR = 26.0
     cells, month_labels, seen_months = "", "", set()
     for d in dates:
         col = (d - start).days // 7
         row = (d.weekday() + 1) % 7
         x, y = GX + col * PITCH, GY + row * PITCH
         cnt, lvl = days[d]
-        cells += f'<rect x="{x}" y="{y}" width="{SQ}" height="{SQ}" rx="3" fill="{LEVELS[lvl]}"/>'
+        if cnt > 0:
+            tk = step_of[d] / NSTEPS
+            cells += (f'<rect x="{x}" y="{y}" width="{SQ}" height="{SQ}" rx="3" fill="{LEVELS[lvl]}">'
+                      f'<animate attributeName="fill" values="{LEVELS[lvl]};{LEVELS[0]};{LEVELS[0]}" keyTimes="0;{tk:.4f};1" dur="{DUR}s" repeatCount="indefinite"/></rect>')
+        else:
+            cells += f'<rect x="{x}" y="{y}" width="{SQ}" height="{SQ}" rx="3" fill="{LEVELS[lvl]}"/>'
         if d.month not in seen_months and d.day <= 7:
             seen_months.add(d.month)
             month_labels += f'<text class="cp-mono" x="{x}" y="{GY - 12}" font-size="10" fill="{MUT}">{MONTHS[d.month-1]}</text>'
-        if d == latest_active:
-            cx, cy = x + SQ / 2, y + SQ / 2
-            cells += (f'<circle cx="{cx}" cy="{cy}" r="8.5" fill="#F2F7FF"/>'
-                      f'<circle cx="{cx-3}" cy="{cy-1}" r="1.7" fill="#0A101F"/>'
-                      f'<circle cx="{cx+3}" cy="{cy-1}" r="1.7" fill="#0A101F"/>')
     for i, lab in [(1, "Mon"), (3, "Wed"), (5, "Fri")]:
         cells += f'<text class="cp-mono" x="52" y="{GY + i * PITCH + 11}" font-size="10" fill="{MUT}">{lab}</text>'
     legend = "".join(f'<rect x="{i*17}" y="0" width="12" height="12" rx="2.5" fill="{LEVELS[i]}"/>' for i in range(5))
+    # the snake: a head + trailing body segments riding the route; cells
+    # above dim the moment the head reaches them (their <animate> fill).
+    pts = []
+    for d in route_dates:
+        col = (d - start).days // 7
+        row = (d.weekday() + 1) % 7
+        pts.append(f"{GX + col * PITCH + SQ/2:.0f} {GY + row * PITCH + SQ/2:.0f}")
+    route_d = "M" + " L".join(pts)
+    step_dur = DUR / NSTEPS
+    body_cols = ["#4C9AFF", "#3B8BFF", "#2E7CF6", "#1F6FEB", "#175CC4"]
+    snake = f'<path id="cp-route" d="{route_d}" fill="none" stroke="none"/>'
+    for i in range(5, 0, -1):
+        snake += (f'<circle r="{7.5 - i * 0.7:.1f}" fill="{body_cols[i-1]}">'
+                  f'<animateMotion dur="{DUR}s" begin="{-i * step_dur:.3f}s" repeatCount="indefinite"><mpath href="#cp-route"/></animateMotion></circle>')
+    snake += (f'<g><animateMotion dur="{DUR}s" repeatCount="indefinite"><mpath href="#cp-route"/></animateMotion>'
+              f'<circle r="8" fill="#F2F7FF"/><circle cx="-3" cy="-1.5" r="1.7" fill="#0A101F"/><circle cx="3" cy="-1.5" r="1.7" fill="#0A101F"/></g>')
     rng = f"{MONTHS[dates[0].month-1]} {dates[0].year} \u2013 {MONTHS[dates[-1].month-1]} {dates[-1].year}"
     today = dates[-1]
     snap = f"{today.day} {MONTHS[today.month-1]} {today.year}"
@@ -117,8 +187,9 @@ def main():
 {stat(1052, "BUSIEST DAY", str(bcount), f"{busiest.day} {MONTHS[busiest.month-1]} {busiest.year}")}
 {month_labels}
 {cells}
+{snake}
 <text class="cp-mono" x="{GX + (ncols * PITCH)//2 - 130}" y="{GY + 7 * PITCH + 34}" font-size="10.5" letter-spacing="2" fill="{MUT}">{streak_line}</text>
-<text class="cp-sans" x="48" y="{H - 26}" font-size="11" fill="{MUT}">Source: public GitHub contribution calendar for @{USER} \u00b7 snapshot {snap} \u00b7 refreshed daily</text>
+<text class="cp-sans" x="48" y="{H - 26}" font-size="11" fill="{MUT}">Source: {"full" if FULL else "public"} GitHub contribution calendar for @{USER} \u00b7 snapshot {snap} \u00b7 refreshed daily</text>
 <g transform="translate(1022 {H - 40})"><text class="cp-sans" x="-34" y="11" font-size="11" fill="{MUT}">Less</text>{legend}<text class="cp-sans" x="92" y="11" font-size="11" fill="{MUT}">More</text></g>
 </svg>"""
     open("contribution-panel.svg", "w").write(svg)
