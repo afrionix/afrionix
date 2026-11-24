@@ -5,7 +5,7 @@ Usage: panel.py [saved-contributions.html]  (fetches live when no file given)"""
 import json, os, re, sys, urllib.request
 from datetime import date, datetime, timedelta, timezone
 
-USER = "abdullahafrididev"
+USER = "afrionix"
 SERIF = "Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Times New Roman', serif"
 MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace"
 SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
