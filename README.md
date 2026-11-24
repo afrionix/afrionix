@@ -1,4 +1,4 @@
-<img src="banner-top.png" width="100%" alt="Abdullah Afridi — AFRIONIX. Software Engineering student and front-end developer. Building clean, responsive websites."/>
+<img src="assets/hero.svg" width="100%" alt="Abdullah Afridi — AFRIONIX. Software Engineering student and front-end developer. Building clean, responsive websites."/>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/abdullahafridi01"><img src="https://img.shields.io/badge/LinkedIn-abdullahafridi01-0E4DA4?style=for-the-badge&labelColor=0A101F&logoColor=EAF2FF&logo=linkedin" alt="LinkedIn profile"/></a>
