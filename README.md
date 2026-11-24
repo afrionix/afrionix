@@ -13,32 +13,19 @@
 </p>
 
 <img src="assets/title-about.svg" width="100%" alt="01 About — Hello, I'm Abdullah."/>
-
-Software Engineering student at **Air University, Islamabad**. I build clean, responsive websites with **HTML, CSS & JavaScript**, and I'm currently levelling up into full-stack development with **Node.js**. Open to internships & freelance projects.
+<img src="assets/about-intro.svg" width="100%" alt="About: Software Engineering student at Air University, Islamabad. I build clean, responsive websites with HTML, CSS and JavaScript, and I'm levelling up into full-stack development with Node.js. Based in Islamabad, Pakistan. Focus: front-end development. Open to internships and freelance."/>
 
 <img src="assets/title-work.svg" width="100%" alt="02 Selected work — Things I've built."/>
 
-**🧮 Calculator** — a clean, responsive calculator built with HTML, CSS & JavaScript, from my first semester.
-
-<p>
+<a href="https://github.com/abdullahafrididev/calculator-project"><img src="assets/project-calculator.svg" width="100%" alt="Calculator: a clean, responsive calculator built with HTML, CSS and JavaScript — my first-semester project."/></a>
+<p align="center">
   <a href="https://github.com/abdullahafrididev/calculator-project"><img src="https://img.shields.io/badge/Repository-Calculator-0A2A52?style=for-the-badge&labelColor=0A101F&logoColor=EAF2FF&logo=github" alt="Calculator repository"/></a>
 </p>
 
-**🎮 Tetris** — classic Tetris in C++. Being cleaned up — repo coming soon.
+<img src="assets/project-tetris.svg" width="100%" alt="Tetris: the classic Tetris written in C++ with object-oriented design — coming soon."/>
 
 <img src="assets/title-toolkit.svg" width="100%" alt="03 Toolkit — The tools I reach for."/>
-
-**Comfortable with**
-
-<p>
-  <img src="https://skillicons.dev/icons?i=cpp,html,css,js,git,github,vscode&theme=dark" alt="C++, HTML, CSS, JavaScript, Git, GitHub, VS Code"/>
-</p>
-
-**Currently learning**
-
-<p>
-  <img src="https://skillicons.dev/icons?i=nodejs,ts,nextjs,postgres,prisma,tailwind&theme=dark" alt="Node.js, TypeScript, Next.js, PostgreSQL, Prisma, Tailwind CSS"/>
-</p>
+<img src="assets/tech-constellation.svg" width="100%" alt="Tech stack. Comfortable with: C++, HTML, CSS, JavaScript, Git, GitHub, VS Code. Currently learning: Node.js, TypeScript, Next.js, PostgreSQL, Prisma, Tailwind."/>
 
 <img src="assets/title-commits.svg" width="100%" alt="04 Commit log — A year of building."/>
 
