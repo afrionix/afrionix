@@ -2,7 +2,7 @@ name: Contribution Panel
 
 on:
   schedule:
-    - cron: "15 * * * *"
+    - cron: "43 * * * *"
   workflow_dispatch:
 
 jobs:
