@@ -123,9 +123,12 @@ def main():
         x, y = GX + col * PITCH, GY + row * PITCH
         cnt, lvl = days[d]
         if cnt > 0:
-            tk = step_of[d] / NSTEPS
+            # the head reaches step i at fraction i/(NSTEPS-1) of the loop
+            # (distance-paced motion, uniform 19px steps); the eat must be a
+            # discrete snap at that instant, NOT a linear fade towards it.
+            tk = max(step_of[d] / (NSTEPS - 1), 0.0001)
             cells += (f'<rect x="{x}" y="{y}" width="{SQ}" height="{SQ}" rx="3" fill="{LEVELS[lvl]}">'
-                      f'<animate attributeName="fill" values="{LEVELS[lvl]};{LEVELS[0]};{LEVELS[0]}" keyTimes="0;{tk:.4f};1" dur="{DUR}s" repeatCount="indefinite"/></rect>')
+                      f'<animate attributeName="fill" values="{LEVELS[lvl]};{LEVELS[0]}" keyTimes="0;{tk:.4f}" calcMode="discrete" dur="{DUR}s" repeatCount="indefinite"/></rect>')
         else:
             cells += f'<rect x="{x}" y="{y}" width="{SQ}" height="{SQ}" rx="3" fill="{LEVELS[lvl]}"/>'
         if d.month not in seen_months and d.day <= 7:
